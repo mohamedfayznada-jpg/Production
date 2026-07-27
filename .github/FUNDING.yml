@@ -1,0 +1,25 @@
+# =====================================================
+# MES CORE V27 Enterprise
+# GitHub Funding Configuration
+# =====================================================
+
+github: []
+
+patreon: ""
+
+open_collective: ""
+
+ko_fi: ""
+
+tidelift: ""
+
+community_bridge: ""
+
+liberapay: ""
+
+issuehunt: ""
+
+otechie: ""
+
+custom:
+  - "https://your-company.com"
