@@ -1,0 +1,53 @@
+# =====================================================
+# MES CORE V27 Enterprise
+# Code Owners
+# =====================================================
+
+# Default owner
+* @mes-core-admin
+
+# GitHub
+.github/ @mes-core-admin
+
+# Documentation
+README.md @mes-core-admin
+LICENSE @mes-core-admin
+
+# Configuration
+firebase.json @mes-core-admin
+firestore.rules @mes-core-admin
+firestore.indexes.json @mes-core-admin
+package.json @mes-core-admin
+vite.config.js @mes-core-admin
+eslint.config.js @mes-core-admin
+.prettierrc @mes-core-admin
+.editorconfig @mes-core-admin
+
+# Frontend
+index.html @frontend-team
+css/ @frontend-team
+
+# JavaScript
+js/ @frontend-team @backend-team
+
+# Firebase
+js/firebase.js @backend-team
+js/api.js @backend-team
+js/sync.js @backend-team
+
+# Business Logic
+js/production.js @production-team
+js/quality.js @quality-team
+js/analytics.js @analytics-team
+
+# Security
+js/auth.js @security-team
+js/permissions.js @security-team
+firestore.rules @security-team
+
+# Assets
+assets/ @design-team
+
+# PWA
+manifest.json @frontend-team
+js/sw.js @frontend-team
