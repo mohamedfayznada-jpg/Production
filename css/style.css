@@ -1,0 +1,520 @@
+/* ======================================================
+   MES CORE V27 Enterprise
+   File: /css/style.css
+   Part 1 / 6
+====================================================== */
+
+:root{
+
+    --primary:#0d6efd;
+
+    --secondary:#6c757d;
+
+    --success:#198754;
+
+    --danger:#dc3545;
+
+    --warning:#ffc107;
+
+    --info:#0dcaf0;
+
+    --light:#f8f9fa;
+
+    --dark:#212529;
+
+    --background:#f5f7fb;
+
+    --surface:#ffffff;
+
+    --border:#dee2e6;
+
+    --text:#212529;
+
+    --radius:12px;
+
+    --shadow:0 4px 15px rgba(0,0,0,.08);
+
+    --transition:.25s;
+
+    --font-size:14px;
+
+}
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    font-size:var(--font-size);
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.view{
+
+    animation:fade .25s ease;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+/* ======================================================
+   MES CORE V27 Enterprise
+   File: /css/style.css
+   Part 2 / 6
+====================================================== */
+
+.container-fluid{
+
+    padding:20px;
+
+}
+
+.card{
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    background:var(--surface);
+
+}
+
+.card-header{
+
+    background:transparent;
+
+    border-bottom:1px solid var(--border);
+
+    font-weight:600;
+
+}
+
+.btn{
+
+    border-radius:10px;
+
+    transition:var(--transition);
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.table{
+
+    background:var(--surface);
+
+}
+
+.table thead{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.form-control,
+
+.form-select{
+
+    border-radius:10px;
+
+}
+
+.navbar{
+
+    box-shadow:var(--shadow);
+
+}
+
+.nav-link{
+
+    transition:var(--transition);
+
+}
+
+.nav-link:hover{
+
+    opacity:.8;
+
+}
+/* ======================================================
+   MES CORE V27 Enterprise
+   File: /css/style.css
+   Part 3 / 6
+====================================================== */
+
+#page-loader{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.9);
+
+    z-index:9999;
+
+    font-size:1.25rem;
+
+    font-weight:600;
+
+}
+
+.toast-container{
+
+    z-index:1080;
+
+}
+
+.modal-content{
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+.progress{
+
+    height:10px;
+
+    border-radius:999px;
+
+}
+
+.progress-bar{
+
+    border-radius:999px;
+
+}
+
+canvas{
+
+    width:100% !important;
+
+    max-width:100%;
+
+}
+
+.chart-container{
+
+    position:relative;
+
+    width:100%;
+
+    height:350px;
+
+}
+
+.badge{
+
+    border-radius:999px;
+
+    padding:.45rem .75rem;
+
+}
+
+.alert{
+
+    border:none;
+
+    border-radius:var(--radius);
+
+}
+/* ======================================================
+   MES CORE V27 Enterprise
+   File: /css/style.css
+   Part 4 / 6
+====================================================== */
+
+.form-label{
+
+    font-weight:600;
+
+    margin-bottom:.4rem;
+
+}
+
+.form-control:focus,
+
+.form-select:focus{
+
+    box-shadow:0 0 0 .2rem rgba(13,110,253,.15);
+
+    border-color:var(--primary);
+
+}
+
+.input-group-text{
+
+    background:var(--light);
+
+    border-color:var(--border);
+
+}
+
+.table-responsive{
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+}
+
+.table-hover tbody tr:hover{
+
+    background:rgba(13,110,253,.05);
+
+}
+
+.list-group-item{
+
+    border-color:var(--border);
+
+}
+
+.dropdown-menu{
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+.pagination .page-link{
+
+    border-radius:8px;
+
+    margin:0 2px;
+
+}
+
+.spinner-border,
+
+.spinner-grow{
+
+    width:1rem;
+
+    height:1rem;
+
+}
+/* ======================================================
+   MES CORE V27 Enterprise
+   File: /css/style.css
+   Part 5 / 6
+====================================================== */
+
+.sidebar{
+
+    min-height:100vh;
+
+    background:var(--surface);
+
+    border-right:1px solid var(--border);
+
+}
+
+.sidebar .nav-link{
+
+    color:var(--text);
+
+    border-radius:10px;
+
+    margin-bottom:4px;
+
+}
+
+.sidebar .nav-link.active{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.kpi-card{
+
+    border-radius:var(--radius);
+
+    padding:20px;
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow);
+
+}
+
+.kpi-value{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+}
+
+.kpi-title{
+
+    color:var(--secondary);
+
+    font-size:.9rem;
+
+}
+
+footer{
+
+    margin-top:40px;
+
+    padding:20px;
+
+    text-align:center;
+
+    color:var(--secondary);
+
+}
+/* ======================================================
+   MES CORE V27 Enterprise
+   File: /css/style.css
+   Part 6 / 6
+====================================================== */
+
+[data-theme="dark"]{
+
+    --background:#121212;
+
+    --surface:#1e1e1e;
+
+    --text:#f1f1f1;
+
+    --border:#343a40;
+
+    --light:#2b2b2b;
+
+}
+
+[data-theme="dark"] body{
+
+    background:var(--background);
+
+    color:var(--text);
+
+}
+
+[data-theme="dark"] .card,
+
+[data-theme="dark"] .table,
+
+[data-theme="dark"] .modal-content,
+
+[data-theme="dark"] .sidebar,
+
+[data-theme="dark"] .dropdown-menu{
+
+    background:var(--surface);
+
+    color:var(--text);
+
+}
+
+[data-theme="dark"] .table{
+
+    color:var(--text);
+
+}
+
+[data-theme="dark"] .form-control,
+
+[data-theme="dark"] .form-select{
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    border-color:var(--border);
+
+}
+
+[data-theme="dark"] #page-loader{
+
+    background:rgba(18,18,18,.95);
+
+    color:var(--text);
+
+}
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+    height:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--secondary);
+
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
