@@ -1,0 +1,38 @@
+{
+  "name": "mes-core-v27-enterprise",
+  "version": "27.0.0",
+  "private": true,
+  "description": "Enterprise Manufacturing Execution System",
+  "author": "MES CORE Team",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "firebase deploy",
+    "hosting": "firebase deploy --only hosting",
+    "rules": "firebase deploy --only firestore:rules",
+    "indexes": "firebase deploy --only firestore:indexes",
+    "emulators": "firebase emulators:start",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "chart.js": "^4.5.0",
+    "firebase": "^12.2.1",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.3",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^7.2.1",
+    "eslint": "^9.35.0",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.5"
+  }
+}
