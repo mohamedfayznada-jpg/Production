@@ -1,0 +1,58 @@
+name: Firebase Emulator Tests
+
+on:
+
+  pull_request:
+
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+
+  emulator:
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 20
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Start Firestore Emulator
+        run: |
+          firebase emulators:exec \
+          --only firestore \
+          "echo Firestore Emulator Started"
+
+      - name: Validate Firestore Rules
+        run: |
+          firebase deploy \
+          --only firestore:rules \
+          --project demo-project \
+          --dry-run
+
+      - name: Validate Firestore Indexes
+        run: |
+          firebase deploy \
+          --only firestore:indexes \
+          --project demo-project \
+          --dry-run
+
+      - name: Build Application
+        run: npm run build
