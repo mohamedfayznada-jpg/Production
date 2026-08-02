@@ -54,13 +54,7 @@ class NotificationManager {
 
 const notifications = new NotificationManager();
 
-export default notifications;
 
-export {
-
-    NotificationManager
-
-};
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/notifications.js
