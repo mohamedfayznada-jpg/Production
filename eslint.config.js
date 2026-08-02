@@ -54,10 +54,7 @@ export default [
                 "always"
             ],
 
-            "curly": [
-                "error",
-                "all"
-            ],
+           "curly": "off",
 
             "semi": [
                 "error",
