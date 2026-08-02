@@ -62,13 +62,7 @@ class App {
 
 const app = new App();
 
-export default app;
 
-export {
-
-    App
-
-};
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/app.js
