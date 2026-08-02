@@ -113,8 +113,7 @@ class ProductionService {
 
 const production = new ProductionService();
 
-export default production;
-export { ProductionService };
+
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/production.js
