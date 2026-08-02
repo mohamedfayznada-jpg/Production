@@ -56,13 +56,7 @@ class EventBus {
 
 const events = new EventBus();
 
-export default events;
 
-export {
-
-    EventBus
-
-};
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/events.js
