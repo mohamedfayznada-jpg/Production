@@ -58,13 +58,7 @@ class ChartManager {
 
 const charts = new ChartManager();
 
-export default charts;
 
-export {
-
-    ChartManager
-
-};
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/charts.js
