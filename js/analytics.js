@@ -92,8 +92,7 @@ class AnalyticsService {
 
 const analytics = new AnalyticsService();
 
-export default analytics;
-export { AnalyticsService };
+
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/analytics.js
