@@ -71,9 +71,7 @@ class Validator {
 
 const validator = new Validator();
 
-export default validator;
 
-export { Validator };
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/validation.js
