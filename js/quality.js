@@ -93,8 +93,7 @@ class QualityService {
 
 const quality = new QualityService();
 
-export default quality;
-export { QualityService };
+
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/quality.js
