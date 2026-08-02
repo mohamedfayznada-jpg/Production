@@ -85,9 +85,6 @@ class AuthService {
 
 const authService = new AuthService();
 
-export default authService;
-
-export { AuthService };
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/auth.js
