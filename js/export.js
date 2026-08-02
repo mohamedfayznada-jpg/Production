@@ -74,13 +74,7 @@ class ExportManager {
 
 const exporter = new ExportManager();
 
-export default exporter;
 
-export {
-
-    ExportManager
-
-};
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/export.js
