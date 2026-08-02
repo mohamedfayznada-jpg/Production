@@ -79,9 +79,7 @@ class Router {
 
 const router = new Router();
 
-export default router;
 
-export { Router };
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/router.js
