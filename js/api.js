@@ -192,19 +192,7 @@ export const SettingsRepository =
         FIREBASE.COLLECTIONS.SETTINGS
     );
 
-export default {
 
-    ProductionRepository,
-
-    QualityRepository,
-
-    UsersRepository,
-
-    ReportsRepository,
-
-    SettingsRepository
-
-};
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/api.js
