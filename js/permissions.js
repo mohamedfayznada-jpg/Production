@@ -50,13 +50,7 @@ class PermissionManager {
 
 const permissions = new PermissionManager();
 
-export default permissions;
 
-export {
-
-    PermissionManager
-
-};
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/permissions.js
