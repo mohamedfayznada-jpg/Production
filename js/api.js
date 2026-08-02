@@ -204,7 +204,7 @@ import {
     qualityId
 } from "./utils.js";
 
-import logger from "./logger.js";
+
 
 export class ProductionAPI {
 
@@ -379,7 +379,7 @@ logger.info("API Part 2 Loaded");
 // Part 3 / 4
 // ======================================================
 
-import logger from "./logger.js";
+
 
 export class SettingsAPI {
 
@@ -535,7 +535,7 @@ logger.info("API Part 3 Loaded");
 
 import queue from "./queue.js";
 import network from "./network.js";
-import logger from "./logger.js";
+
 
 export class SyncAPI {
 
