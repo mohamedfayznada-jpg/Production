@@ -66,9 +66,7 @@ class ThemeManager {
 
 const theme = new ThemeManager();
 
-export default theme;
 
-export { ThemeManager };
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/theme.js
