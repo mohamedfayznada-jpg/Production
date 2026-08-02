@@ -100,9 +100,7 @@ class UI {
 
 const ui = new UI();
 
-export default ui;
 
-export { UI };
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/ui.js
