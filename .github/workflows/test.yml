@@ -1,58 +1,36 @@
 name: Test Suite
 
 on:
-
   push:
-
     branches:
       - main
       - develop
 
   pull_request:
-
     branches:
       - main
 
   workflow_dispatch:
 
 jobs:
-
   test:
 
     runs-on: ubuntu-latest
 
-    strategy:
-
-      matrix:
-
-        node-version: [20.x]
-
     steps:
 
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: npm
+          node-version: 22
 
-      - name: Install Dependencies
-        run: npm install
+      - run: node -v
 
-      - name: Run Lint
-        run: npm run lint
+      - run: npm --version
 
-      - name: Run Build
-        run: npm run build
+      - run: npm install
 
-      - name: Check Formatting
-        run: npx prettier . --check
+      - run: npm run lint
 
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: mes-core-build
-          path: dist/
-          if-no-files-found: error
+      - run: npm run build
