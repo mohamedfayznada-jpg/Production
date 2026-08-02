@@ -206,7 +206,7 @@ import {
 
 
 
-export class ProductionAPI {
+class ProductionAPI {
 
     static async save(record) {
 
@@ -280,7 +280,7 @@ export class ProductionAPI {
 
 }
 
-export class QualityAPI {
+class QualityAPI {
 
     static async save(defect) {
 
@@ -338,7 +338,7 @@ export class QualityAPI {
 
 }
 
-export class UserAPI {
+class UserAPI {
 
     static async save(user) {
 
@@ -381,7 +381,7 @@ logger.info("API Part 2 Loaded");
 
 
 
-export class SettingsAPI {
+class SettingsAPI {
 
     static async save(settings) {
 
@@ -402,7 +402,7 @@ export class SettingsAPI {
 
 }
 
-export class ReportsAPI {
+class ReportsAPI {
 
     static async save(report) {
 
@@ -436,7 +436,7 @@ export class ReportsAPI {
 
 }
 
-export class BatchAPI {
+class BatchAPI {
 
     static async saveProduction(records) {
 
@@ -537,7 +537,7 @@ import queue from "./queue.js";
 import network from "./network.js";
 
 
-export class SyncAPI {
+class SyncAPI {
 
     static async enqueue(action, payload) {
 
