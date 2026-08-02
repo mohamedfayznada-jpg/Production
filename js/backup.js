@@ -60,13 +60,7 @@ class BackupManager {
 
 const backup = new BackupManager();
 
-export default backup;
 
-export {
-
-    BackupManager
-
-};
 // ======================================================
 // MES CORE V27 Enterprise
 // File: /js/backup.js
