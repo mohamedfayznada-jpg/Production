@@ -1,371 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>MES CORE V27</title>
-
-    <link rel="manifest"
-          href="manifest.json">
-
-    <link rel="icon"
-          href="assets/logo.png">
-
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <link rel="stylesheet"
-          href="css/style.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0d6efd">
+    <meta name="description" content="MES CORE V28 Enterprise Manufacturing Execution System">
+    <title>MES CORE V28</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background:#f5f7fb; }
+        .view { min-height:70vh; }
+        .kpi { border:0; box-shadow:0 .125rem .5rem rgba(0,0,0,.06); }
+        .kpi-value { font-size:1.8rem; font-weight:700; }
+        .table-card { border:0; box-shadow:0 .125rem .5rem rgba(0,0,0,.06); }
+        #auth-screen { min-height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#0b1220,#183b66); }
+        #auth-card { width:min(420px,92vw); }
+        .pending { opacity:.65; }
+    </style>
 </head>
-
 <body>
-
-<div id="page-loader"
-     class="hidden">
-
-    Loading...
-
-</div>
-
-<div id="toast-container"
-     class="toast-container position-fixed top-0 end-0 p-3">
-
-</div>
-
-<div id="app">
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-        <div class="container-fluid">
-
-            <a class="navbar-brand"
-               href="#dashboard">
-
-                MES CORE V27
-
-            </a>
-
-            <button class="navbar-toggler"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#menu">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <div class="collapse navbar-collapse"
-                 id="menu">
-
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-
-                        <a class="nav-link"
-                           href="#dashboard">
-
-                            Dashboard
-
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="nav-link"
-                           href="#production">
-
-                            Production
-
-                        </a>
-
-                    </li>
-                                        <li class="nav-item">
-
-                        <a class="nav-link"
-                           href="#quality">
-
-                            Quality
-
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="nav-link"
-                           href="#reports">
-
-                            Reports
-
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="nav-link"
-                           href="#users">
-
-                            Users
-
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="nav-link"
-                           href="#settings">
-
-                            Settings
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
+<div id="auth-screen">
+    <div id="auth-card" class="card shadow-lg border-0">
+        <div class="card-body p-4">
+            <h3 class="fw-bold mb-1">MES CORE V28</h3>
+            <p class="text-muted mb-4">Enterprise Manufacturing Execution System</p>
+            <form id="login-form">
+                <div class="mb-3"><label class="form-label">Email</label><input id="login-email" type="email" class="form-control" required autocomplete="username"></div>
+                <div class="mb-3"><label class="form-label">Password</label><input id="login-password" type="password" class="form-control" required autocomplete="current-password"></div>
+                <div id="login-error" class="alert alert-danger d-none"></div>
+                <button class="btn btn-primary w-100" type="submit">Sign in</button>
+            </form>
         </div>
-
-    </nav>
-
-    <main class="container-fluid py-4">
-
-        <section id="dashboard"
-                 class="view">
-
-            <div class="row">
-
-                <div class="col-12">
-
-                    <h2>
-
-                        Dashboard
-
-                    </h2>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section id="production"
-                 class="view hidden">
-
-            <h2>
-
-                Production
-
-            </h2>
-
-        </section>
-                <section id="quality"
-                 class="view hidden">
-
-            <h2>
-
-                Quality
-
-            </h2>
-
-        </section>
-
-        <section id="reports"
-                 class="view hidden">
-
-            <h2>
-
-                Reports
-
-            </h2>
-
-        </section>
-
-        <section id="users"
-                 class="view hidden">
-
-            <h2>
-
-                Users
-
-            </h2>
-
-        </section>
-
-        <section id="settings"
-                 class="view hidden">
-
-            <h2>
-
-                Settings
-
-            </h2>
-
-        </section>
-
-    </main>
-
+    </div>
 </div>
 
+<div id="app-shell" class="d-none">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#dashboard">MES CORE V28</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="#dashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#production">Production</a></li>
+                <li class="nav-item"><a class="nav-link" href="#quality">Quality</a></li>
+                <li class="nav-item"><a class="nav-link" href="#waste">Waste</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tpm">TPM</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reports">Reports</a></li>
+                <li class="nav-item"><a class="nav-link" href="#users">Users</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings">Settings</a></li>
+            </ul>
+            <button id="logout-btn" class="btn btn-outline-light btn-sm">Logout</button>
+        </div>
+    </div>
+</nav>
+
+<main class="container-fluid py-4">
+    <section id="dashboard" class="view">
+        <div class="d-flex justify-content-between align-items-center mb-3"><div><h2 class="mb-0">Executive Dashboard</h2><small id="dashboard-date" class="text-muted"></small></div><button id="refresh-dashboard" class="btn btn-outline-primary"><i class="bi bi-arrow-clockwise"></i> Refresh</button></div>
+        <div class="row g-3 mb-4">
+            <div class="col-6 col-xl-2"><div class="card kpi"><div class="card-body"><small>Plan</small><div id="kpi-plan" class="kpi-value">0</div></div></div></div>
+            <div class="col-6 col-xl-2"><div class="card kpi"><div class="card-body"><small>Actual</small><div id="kpi-actual" class="kpi-value">0</div></div></div></div>
+            <div class="col-6 col-xl-2"><div class="card kpi"><div class="card-body"><small>Achievement</small><div id="kpi-achievement" class="kpi-value">0%</div></div></div></div>
+            <div class="col-6 col-xl-2"><div class="card kpi"><div class="card-body"><small>Quality Defects</small><div id="kpi-defects" class="kpi-value">0</div></div></div></div>
+            <div class="col-6 col-xl-2"><div class="card kpi"><div class="card-body"><small>Yield</small><div id="kpi-yield" class="kpi-value">0%</div></div></div></div>
+            <div class="col-6 col-xl-2"><div class="card kpi"><div class="card-body"><small>Waste Cost</small><div id="kpi-waste" class="kpi-value">0</div></div></div></div>
+        </div>
+        <div class="row g-3"><div class="col-lg-8"><div class="card table-card"><div class="card-body"><h5>Hourly Production</h5><div class="table-responsive"><table class="table table-sm" id="production-summary-table"><thead><tr><th>Hour</th><th>Model</th><th>Plan</th><th>Actual</th><th>Defects</th><th>Achievement</th></tr></thead><tbody></tbody></table></div></div></div></div><div class="col-lg-4"><div class="card table-card"><div class="card-body"><h5>Top Defects</h5><div id="top-defects"></div></div></div></div></div>
+    </section>
+
+    <section id="production" class="view d-none">
+        <h2>Production</h2><form id="production-form" class="card p-3 mb-3"><div class="row g-2"><div class="col-md-2"><label class="form-label">Date</label><input name="date" type="date" class="form-control" required></div><div class="col-md-1"><label class="form-label">Shift</label><input name="shift" type="number" min="1" max="2" value="1" class="form-control" required></div><div class="col-md-2"><label class="form-label">Hour</label><input name="hour" type="time" class="form-control" required></div><div class="col-md-2"><label class="form-label">Model</label><input name="model" class="form-control"></div><div class="col-md-1"><label class="form-label">Plan</label><input name="plan" type="number" min="0" class="form-control"></div><div class="col-md-1"><label class="form-label">Actual</label><input name="actual" type="number" min="0" class="form-control"></div><div class="col-md-1"><label class="form-label">Defects</label><input name="defects" type="number" min="0" class="form-control"></div><div class="col-md-1"><label class="form-label">Operators</label><input name="operators" type="number" min="0" class="form-control"></div><div class="col-md-1 d-flex align-items-end"><button class="btn btn-primary w-100">Save</button></div></div></form><div class="card p-3"><div class="table-responsive"><table class="table" id="production-table"><thead><tr><th>Date</th><th>Shift</th><th>Hour</th><th>Model</th><th>Plan</th><th>Actual</th><th>Defects</th></tr></thead><tbody></tbody></table></div></div>
+    </section>
+
+    <section id="quality" class="view d-none">
+        <h2>Quality</h2><form id="quality-form" class="card p-3 mb-3"><div class="row g-2"><div class="col-md-2"><input name="date" type="date" class="form-control" required></div><div class="col-md-1"><input name="shift" type="number" min="1" max="2" value="1" class="form-control" required></div><div class="col-md-1"><input name="hour" type="time" class="form-control"></div><div class="col-md-2"><input name="model" class="form-control" placeholder="Model"></div><div class="col-md-2"><input name="defect" class="form-control" placeholder="Defect" required></div><div class="col-md-1"><input name="station" class="form-control" placeholder="Station"></div><div class="col-md-1"><input name="category" class="form-control" placeholder="Category"></div><div class="col-md-1"><input name="quantity" type="number" min="1" value="1" class="form-control"></div><div class="col-md-1"><button class="btn btn-primary w-100">Save</button></div></div></form><div class="card p-3"><div class="table-responsive"><table class="table" id="quality-table"><thead><tr><th>Date</th><th>Shift</th><th>Model</th><th>Defect</th><th>Station</th><th>Qty</th></tr></thead><tbody></tbody></table></div></div>
+    </section>
+
+    <section id="waste" class="view d-none">
+        <h2>Waste</h2><form id="waste-form" class="card p-3 mb-3"><div class="row g-2"><div class="col-md-2"><input name="date" type="date" class="form-control" required></div><div class="col-md-1"><input name="shift" type="number" min="1" max="2" value="1" class="form-control"></div><div class="col-md-2"><input name="model" class="form-control" placeholder="Model"></div><div class="col-md-2"><input name="material" class="form-control" placeholder="Material"></div><div class="col-md-1"><input name="category" class="form-control" placeholder="Category"></div><div class="col-md-1"><input name="quantity" type="number" min="0" step="0.01" class="form-control" placeholder="Qty"></div><div class="col-md-1"><input name="unitCost" type="number" min="0" step="0.01" class="form-control" placeholder="Cost"></div><div class="col-md-1"><input name="reason" class="form-control" placeholder="Reason"></div><div class="col-md-1"><button class="btn btn-primary w-100">Save</button></div></div></form><div class="card p-3"><div class="table-responsive"><table class="table" id="waste-table"><thead><tr><th>Date</th><th>Model</th><th>Material</th><th>Category</th><th>Qty</th><th>Total Cost</th><th>Reason</th></tr></thead><tbody></tbody></table></div></div>
+    </section>
+
+    <section id="tpm" class="view d-none">
+        <h2>TPM</h2><form id="tpm-form" class="card p-3 mb-3"><div class="row g-2"><div class="col-md-2"><input name="date" type="date" class="form-control" required></div><div class="col-md-2"><select name="pillar" class="form-select"><option>Autonomous Maintenance</option><option>Planned Maintenance</option><option>Quality Maintenance</option><option>Focused Improvement</option><option>Education & Training</option><option>Early Management</option><option>Safety Health Environment</option><option>Office TPM</option></select></div><div class="col-md-2"><input name="area" class="form-control" placeholder="Area"></div><div class="col-md-3"><input name="activity" class="form-control" placeholder="Activity" required></div><div class="col-md-1"><select name="status" class="form-select"><option>Open</option><option>In Progress</option><option>Closed</option></select></div><div class="col-md-1"><input name="dueDate" type="date" class="form-control"></div><div class="col-md-1"><button class="btn btn-primary w-100">Save</button></div></div></form><div class="card p-3"><div class="table-responsive"><table class="table" id="tpm-table"><thead><tr><th>Date</th><th>Pillar</th><th>Area</th><th>Activity</th><th>Status</th><th>Due</th></tr></thead><tbody></tbody></table></div></div>
+    </section>
+
+    <section id="reports" class="view d-none"><h2>Reports</h2><div class="card p-4"><button id="export-json" class="btn btn-outline-primary">Export Dashboard JSON</button></div></section>
+    <section id="users" class="view d-none"><h2>Users</h2><div class="card p-4"><p id="current-user-info" class="mb-0"></p></div></section>
+    <section id="settings" class="view d-none"><h2>Settings</h2><div class="card p-4"><p class="mb-0">MES CORE V28 configuration is controlled through the application configuration and Firebase rules.</p></div></section>
+</main>
+</div>
+
+<div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js"></script>
 <script type="module">
-
 import app from "./js/app.js";
-
-import theme from "./js/theme.js";
-
-import router from "./js/router.js";
-
+import auth from "./js/auth.js";
+import production from "./js/production.js";
+import quality from "./js/quality.js";
+import waste from "./js/waste.js";
+import tpm from "./js/tpm.js";
+import analytics from "./js/analytics.js";
 import ui from "./js/ui.js";
 
-window.app = app;
+window.app = app; window.auth = auth; window.production = production; window.quality = quality; window.waste = waste; window.tpm = tpm; window.analytics = analytics; window.ui = ui;
 
-window.theme = theme;
+const authScreen = document.getElementById("auth-screen");
+const shell = document.getElementById("app-shell");
+const today = new Intl.DateTimeFormat("en-CA", { timeZone:"Africa/Cairo", year:"numeric", month:"2-digit", day:"2-digit" }).format(new Date());
+const setDefaultDates = () => document.querySelectorAll('input[type="date"]').forEach(x => { if (!x.value) x.value = today; });
+const setText = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = value; };
+const formObject = form => Object.fromEntries(new FormData(form).entries());
+const renderRows = (tableId, rows, fields) => { const body = document.querySelector(`#${tableId} tbody`); if (!body) return; body.textContent = ""; rows.forEach(row => { const tr = document.createElement("tr"); if (row._pendingSync) tr.classList.add("pending"); fields.forEach(field => { const td = document.createElement("td"); td.textContent = row[field] ?? ""; tr.appendChild(td); }); body.appendChild(tr); }); };
 
-window.router = router;
-
-window.ui = ui;
-
-ui.registerView(
-
-    "dashboard",
-
-    "#dashboard"
-
-);
-
-ui.registerView(
-
-    "production",
-
-    "#production"
-
-);
-
-ui.registerView(
-
-    "quality",
-
-    "#quality"
-
-);
-
-ui.registerView(
-
-    "reports",
-
-    "#reports"
-
-);
-
-ui.registerView(
-
-    "users",
-
-    "#users"
-
-);
-
-ui.registerView(
-
-    "settings",
-
-    "#settings"
-
-);
-
-</script>
-<script type="module">
-
-import analytics from "./js/analytics.js";
-import charts from "./js/charts.js";
-import events from "./js/events.js";
-import notifications from "./js/notifications.js";
-
-window.analytics = analytics;
-window.charts = charts;
-window.events = events;
-window.notifications = notifications;
-
-events.on("dashboard:refresh", () => {
-
+async function refresh() {
     const data = analytics.dashboard();
+    setText("dashboard-date", today); setText("kpi-plan", data.plan); setText("kpi-actual", data.actual); setText("kpi-achievement", `${data.achievement}%`); setText("kpi-defects", data.defects); setText("kpi-yield", `${data.yield}%`); setText("kpi-waste", data.wasteCost);
+    renderRows("production-summary-table", production.hourly(), ["hour","model","plan","actual","defects"]);
+    const top = document.getElementById("top-defects"); top.textContent = "";
+    analytics.topDefects(8).forEach(item => { const div = document.createElement("div"); div.className = "d-flex justify-content-between border-bottom py-2"; const a = document.createElement("span"); a.textContent = item.defect; const b = document.createElement("strong"); b.textContent = item.quantity; div.append(a,b); top.appendChild(div); });
+    renderRows("production-table", production.all(), ["date","shift","hour","model","plan","actual","defects"]);
+    renderRows("quality-table", quality.all(), ["date","shift","model","defect","station","quantity"]);
+    renderRows("waste-table", waste.all(), ["date","model","material","category","quantity","totalCost","reason"]);
+    renderRows("tpm-table", tpm.all(), ["date","pillar","area","activity","status","dueDate"]);
+    setText("current-user-info", `${auth.name() || auth.email() || ""} — ${auth.role()}`);
+}
 
-    console.log(data);
+auth.onChange(async user => { const signedIn = !!user; authScreen.classList.toggle("d-none", signedIn); shell.classList.toggle("d-none", !signedIn); if (signedIn) { setDefaultDates(); try { await analytics.refresh(today); } catch (e) { console.error(e); } await refresh(); } });
 
-});
+document.getElementById("login-form").addEventListener("submit", async event => { event.preventDefault(); const error = document.getElementById("login-error"); error.classList.add("d-none"); try { await auth.login(document.getElementById("login-email").value.trim(), document.getElementById("login-password").value); } catch (e) { error.textContent = e?.message || "Login failed"; error.classList.remove("d-none"); } });
+document.getElementById("logout-btn").addEventListener("click", async () => { await auth.logout(); });
+document.getElementById("refresh-dashboard").addEventListener("click", async () => { await analytics.refresh(today); await refresh(); });
 
+document.getElementById("production-form").addEventListener("submit", async event => { event.preventDefault(); await production.save(formObject(event.currentTarget)); event.currentTarget.reset(); setDefaultDates(); await refresh(); });
+document.getElementById("quality-form").addEventListener("submit", async event => { event.preventDefault(); await quality.save(formObject(event.currentTarget)); event.currentTarget.reset(); setDefaultDates(); await refresh(); });
+document.getElementById("waste-form").addEventListener("submit", async event => { event.preventDefault(); await waste.save(formObject(event.currentTarget)); event.currentTarget.reset(); setDefaultDates(); await refresh(); });
+document.getElementById("tpm-form").addEventListener("submit", async event => { event.preventDefault(); await tpm.save(formObject(event.currentTarget)); event.currentTarget.reset(); setDefaultDates(); await refresh(); });
+document.getElementById("export-json").addEventListener("click", () => { const blob = new Blob([analytics.toJSON()], { type:"application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement("a"); a.href=url; a.download=`MES_CORE_${today}.json`; a.click(); URL.revokeObjectURL(url); });
+
+setDefaultDates();
 </script>
-<script type="module">
-
-import auth from "./js/auth.js";
-import backup from "./js/backup.js";
-import exporter from "./js/export.js";
-import permissions from "./js/permissions.js";
-
-window.auth = auth;
-window.backup = backup;
-window.exporter = exporter;
-window.permissions = permissions;
-
-window.exportJSON = () => exporter.json();
-
-window.exportCSV = () => exporter.csv();
-
-window.createBackup = () => backup.download();
-
-window.logout = () => auth.logout();
-
-</script>
-<script type="module">
-
-import sync from "./js/sync.js";
-import logger from "./js/logger.js";
-import storage from "./js/storage.js";
-import validator from "./js/validation.js";
-
-window.sync = sync;
-window.logger = logger;
-window.storage = storage;
-window.validator = validator;
-
-window.addEventListener("online", () => {
-
-    logger.success("Online");
-
-});
-
-window.addEventListener("offline", () => {
-
-    logger.warning("Offline");
-
-});
-
-</script>
-<script type="module">
-
-import "./js/app.js";
-
-</script>
-
 </body>
-
 </html>
