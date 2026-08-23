@@ -1,18 +1,9 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    function signedIn() {
-      return request.auth != null;
-    }
-
-    function userDoc() {
-      return get(/databases/$(database)/documents/users/$(request.auth.uid));
-    }
-
-    function role(roleName) {
-      return signedIn() && userDoc().data.role == roleName;
-    }
-
+    function signedIn() { return request.auth != null; }
+    function userDoc() { return get(/databases/$(database)/documents/users/$(request.auth.uid)); }
+    function role(roleName) { return signedIn() && userDoc().data.role == roleName; }
     function admin() { return role('admin'); }
     function manager() { return admin() || role('production_manager'); }
     function engineer() { return manager() || role('engineer'); }
@@ -21,8 +12,8 @@ service cloud.firestore {
 
     match /users/{uid} {
       allow read: if signedIn() && (request.auth.uid == uid || admin());
-      allow create: if signedIn() && request.auth.uid == uid;
-      allow update: if signedIn() && (request.auth.uid == uid || admin());
+      allow create: if (admin()) || (signedIn() && request.auth.uid == uid && request.resource.data.role == 'viewer' && request.resource.data.active == true);
+      allow update: if admin() || (signedIn() && request.auth.uid == uid && request.resource.data.role == resource.data.role);
       allow delete: if admin();
     }
 
@@ -31,47 +22,39 @@ service cloud.firestore {
       allow create, update: if operator();
       allow delete: if manager();
     }
-
     match /quality/{id} {
       allow read: if signedIn();
       allow create: if operator();
       allow update: if supervisor();
       allow delete: if manager();
     }
-
     match /waste/{id} {
       allow read: if signedIn();
       allow create: if operator();
       allow update: if supervisor();
       allow delete: if manager();
     }
-
     match /tpmActivities/{id} {
       allow read: if signedIn();
       allow create, update: if supervisor();
       allow delete: if manager();
     }
-
     match /reports/{id} {
       allow read: if signedIn();
       allow create, update: if engineer();
       allow delete: if manager();
     }
-
     match /settings/{id} {
       allow read: if signedIn();
       allow create, update, delete: if manager();
     }
-
     match /shifts/{id} {
       allow read: if signedIn();
       allow create, update, delete: if manager();
     }
-
     match /logs/{id} {
       allow read, write: if admin();
     }
-
     match /backups/{id} {
       allow read, write: if admin();
     }
