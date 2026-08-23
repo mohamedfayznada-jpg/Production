@@ -21,6 +21,8 @@ export const FIREBASE = Object.freeze({
     COLLECTIONS: {
         PRODUCTION: "production",
         QUALITY: "quality",
+        WASTE: "waste",
+        TPM: "tpmActivities",
         USERS: "users",
         SHIFTS: "shifts",
         SETTINGS: "settings",
@@ -32,78 +34,21 @@ export const FIREBASE = Object.freeze({
 
 export const STORAGE = Object.freeze({
     CACHE_PREFIX: "MESCORE",
-    CACHE_KEYS: {
-        USER: "CURRENT_USER",
-        SETTINGS: "SETTINGS",
-        LAST_SYNC: "LAST_SYNC",
-        NETWORK: "NETWORK",
-        QUEUE: "QUEUE"
-    }
+    CACHE_KEYS: { USER: "CURRENT_USER", SETTINGS: "SETTINGS", LAST_SYNC: "LAST_SYNC", NETWORK: "NETWORK", QUEUE: "QUEUE" }
 });
 
 export const SHIFTS = Object.freeze({
-    SHIFT_1: {
-        id: 1,
-        name: "Shift A",
-        hours: ["08:30", "09:30", "10:30", "11:30", "12:45", "13:30", "14:30", "15:30", "16:15"]
-    },
-    SHIFT_2: {
-        id: 2,
-        name: "Shift B",
-        hours: ["17:30", "18:30", "19:30", "20:30", "21:30", "22:30", "23:30", "00:15"]
-    }
+    SHIFT_1: { id: 1, name: "Shift A", hours: ["08:30", "09:30", "10:30", "11:30", "12:45", "13:30", "14:30", "15:30", "16:15"] },
+    SHIFT_2: { id: 2, name: "Shift B", hours: ["17:30", "18:30", "19:30", "20:30", "21:30", "22:30", "23:30", "00:15"] }
 });
 
-export const ROLES = Object.freeze({
-    ADMIN: "admin",
-    PRODUCTION_MANAGER: "production_manager",
-    ENGINEER: "engineer",
-    SUPERVISOR: "supervisor",
-    OPERATOR: "operator",
-    VIEWER: "viewer"
-});
+export const ROLES = Object.freeze({ ADMIN: "admin", PRODUCTION_MANAGER: "production_manager", ENGINEER: "engineer", SUPERVISOR: "supervisor", OPERATOR: "operator", VIEWER: "viewer" });
+export const STATUS = Object.freeze({ ONLINE: "online", OFFLINE: "offline", SYNCING: "syncing", ERROR: "error" });
+export const QUALITY = Object.freeze({ IMAGE_MAX_SIZE: 1920, IMAGE_QUALITY: 0.85, MAX_IMAGES: 5 });
+export const WASTE = Object.freeze({ CATEGORIES: ["Material", "Component", "Packaging", "Rework", "Other"] });
+export const TPM = Object.freeze({ PILLARS: ["Autonomous Maintenance", "Planned Maintenance", "Quality Maintenance", "Focused Improvement", "Education & Training", "Early Management", "Safety Health Environment", "Office TPM"] });
+export const LOGGER = Object.freeze({ ENABLED: true, MAX_ITEMS: 1000, LEVELS: { INFO: "INFO", SUCCESS: "SUCCESS", WARNING: "WARNING", ERROR: "ERROR", NETWORK: "NETWORK", FIREBASE: "FIREBASE", CACHE: "CACHE", SYNC: "SYNC" } });
+export const QUEUE = Object.freeze({ MAX_RETRY: 5, RETRY_DELAY: 3000, MAX_ITEMS: 5000 });
+export const PAGES = Object.freeze({ LOGIN: "login", DASHBOARD: "dashboard", PRODUCTION: "production", QUALITY: "quality", WASTE: "waste", TPM: "tpm", REPORTS: "reports", SETTINGS: "settings" });
 
-export const STATUS = Object.freeze({
-    ONLINE: "online",
-    OFFLINE: "offline",
-    SYNCING: "syncing",
-    ERROR: "error"
-});
-
-export const QUALITY = Object.freeze({
-    IMAGE_MAX_SIZE: 1920,
-    IMAGE_QUALITY: 0.85,
-    MAX_IMAGES: 5
-});
-
-export const LOGGER = Object.freeze({
-    ENABLED: true,
-    MAX_ITEMS: 1000,
-    LEVELS: {
-        INFO: "INFO",
-        SUCCESS: "SUCCESS",
-        WARNING: "WARNING",
-        ERROR: "ERROR",
-        NETWORK: "NETWORK",
-        FIREBASE: "FIREBASE",
-        CACHE: "CACHE",
-        SYNC: "SYNC"
-    }
-});
-
-export const QUEUE = Object.freeze({
-    MAX_RETRY: 5,
-    RETRY_DELAY: 3000,
-    MAX_ITEMS: 5000
-});
-
-export const PAGES = Object.freeze({
-    LOGIN: "login",
-    DASHBOARD: "dashboard",
-    PRODUCTION: "production",
-    QUALITY: "quality",
-    REPORTS: "reports",
-    SETTINGS: "settings"
-});
-
-export default { APP, FIREBASE, STORAGE, SHIFTS, ROLES, STATUS, QUALITY, LOGGER, QUEUE, PAGES };
+export default { APP, FIREBASE, STORAGE, SHIFTS, ROLES, STATUS, QUALITY, WASTE, TPM, LOGGER, QUEUE, PAGES };
