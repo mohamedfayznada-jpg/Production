@@ -33,6 +33,6 @@
     "@vitejs/plugin-legacy": "^7.2.1",
     "eslint": "^9.35.0",
     "prettier": "^3.6.2",
-    "vite": "^7.1.5"
+    "vite": "^8.2.2"
   }
 }
