@@ -46,7 +46,7 @@ jobs:
           zip -r ../MES_CORE_V27.zip .
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: MES_CORE_V27.zip
           generate_release_notes: true
